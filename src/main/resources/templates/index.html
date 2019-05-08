@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>上传全景图</title>
+</head>
+
+<body>
+<form action="/fileUploadController" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td>景区名称</td>
+            <td><input type="text" name="title"></td>
+        </tr>
+        <tr>
+            <td>景区简介</td>
+            <td><input type="text" name="desc"></td>
+        </tr>
+        <tr>
+            <td>上传图片</td>
+            <td><input type="file" name="filename"/></td>
+        </tr>
+        <tr><td><input type="submit" value="确定"/></td></tr>
+    </table>
+</form>
+</body>
+</html>

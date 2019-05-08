@@ -9,6 +9,15 @@ public class ImgMsg {
     private String ImgAssetName;
     private String ImgResourceName;
 
+    public void set(int ImgType,String ImgTitle,String ImgDesc,String ImgAssetName,String ImgResourceName)
+    {
+        this.ImgAssetName=ImgAssetName;
+        this.ImgDesc=ImgDesc;
+        this.ImgId=ImgId;
+        this.ImgResourceName=ImgResourceName;
+        this.ImgTitle=ImgTitle;
+        this.ImgType=ImgType;
+    }
     public int getImgId() {
         return ImgId;
     }
