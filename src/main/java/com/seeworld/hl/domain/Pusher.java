@@ -2,10 +2,19 @@ package com.seeworld.hl.domain;
 
 public class Pusher {
     int PId;
+    String PUsername;
     String PName;
     String PPwd;
     String PDesc;
     String PPhone;
+
+    public String getPUsername() {
+        return PUsername;
+    }
+
+    public void setPUsername(String PUsername) {
+        this.PUsername = PUsername;
+    }
 
     public String getPPhone() {
         return PPhone;
@@ -45,13 +54,13 @@ public class Pusher {
     public void setPPwd(String PPwd) {
         this.PPwd = PPwd;
     }
-    public void set(int PId,String PName,String PPwd,String PPhone,String PDesc)
+    public void set(String PName,String PPwd,String PPhone,String PDesc,String PUsername)
     {
         this.PDesc=PDesc;
-        this.PId=PId;
         this.PName=PName;
         this.PPhone=PPhone;
         this.PPwd=PPwd;
+        this.PUsername=PUsername;
     }
 
 }

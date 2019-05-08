@@ -39,6 +39,8 @@ public class PicUploadController
         ImgMsg img=new ImgMsg();
         System.out.println("title="+title);
         System.out.println("desc="+desc);
+
+
         String fileName = filename.getOriginalFilename();
         System.out.println("fileName="+fileName);
         File parentDir = new File(parentDirPath);
@@ -49,10 +51,11 @@ public class PicUploadController
 
         filename.transferTo(new File(parentDirPath + fileName)); //全局配置文件中配置的目录加上文件名
         String pic_url=parentDirPath+fileName;
-        img.set(0,title,desc,pic_url,"0");
+        //img.set(0,title,desc,pic_url,"0");
         System.out.println("pic_url="+pic_url);
         model.addAttribute("pic_name", fileName);
-        model.addAttribute("pic_url",parentDirPath+fileName);
+        model.addAttribute("pic_url",pic_url);
+        img.set(0,title,desc,imgMsgService.SaveImage(pic_url),null);
         System.out.println(imgMsgService.addImg(img));
 
         return "show";

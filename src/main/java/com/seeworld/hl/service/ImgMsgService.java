@@ -4,4 +4,5 @@ import com.seeworld.hl.domain.ImgMsg;
 
 public interface ImgMsgService {
     public int addImg(ImgMsg img);
+    public byte[] SaveImage(String path);
 }

@@ -6,9 +6,17 @@ public class ImgMsg {
     private int ImgType;
     private String ImgTitle;
     private String ImgDesc;
-    private Byte[] ImgAssetName;
-    private Byte[] ImgResourceName;
+    private byte[] ImgAssetName;
+    private byte[] ImgResourceName;
 
+    public void set(int ImgType,String ImgTitle,String ImgDesc,byte[] ImgAssetName,byte[] ImgResourceName)
+    {
+        this.ImgType=ImgType;
+        this.ImgTitle=ImgTitle;
+        this.ImgResourceName=ImgResourceName;
+        this.ImgDesc=ImgDesc;
+        this.ImgAssetName=ImgAssetName;
+    }
     public int getImgId() {
         return ImgId;
     }
@@ -41,19 +49,19 @@ public class ImgMsg {
         ImgDesc = imgDesc;
     }
 
-    public Byte[] getImgAssetName() {
+    public byte[] getImgAssetName() {
         return ImgAssetName;
     }
 
-    public void setImgAssetName(Byte[] imgAssetName) {
+    public void setImgAssetName(byte[] imgAssetName) {
         ImgAssetName = imgAssetName;
     }
 
-    public Byte[] getImgResourceName() {
+    public byte[] getImgResourceName() {
         return ImgResourceName;
     }
 
-    public void setImgResourceName(Byte[] imgResourceName) {
+    public void setImgResourceName(byte[] imgResourceName) {
         ImgResourceName = imgResourceName;
     }
 
