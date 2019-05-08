@@ -6,8 +6,8 @@ public class ImgMsg {
     private int ImgType;
     private String ImgTitle;
     private String ImgDesc;
-    private String ImgAssetName;
-    private String ImgResourceName;
+    private Byte[] ImgAssetName;
+    private Byte[] ImgResourceName;
 
     public int getImgId() {
         return ImgId;
@@ -41,21 +41,22 @@ public class ImgMsg {
         ImgDesc = imgDesc;
     }
 
-    public String getImgAssetName() {
+    public Byte[] getImgAssetName() {
         return ImgAssetName;
     }
 
-    public void setImgAssetName(String imgAssetName) {
+    public void setImgAssetName(Byte[] imgAssetName) {
         ImgAssetName = imgAssetName;
     }
 
-    public String getImgResourceName() {
+    public Byte[] getImgResourceName() {
         return ImgResourceName;
     }
 
-    public void setImgResourceName(String imgResourceName) {
+    public void setImgResourceName(Byte[] imgResourceName) {
         ImgResourceName = imgResourceName;
     }
+
 
 
 }
