@@ -35,7 +35,7 @@ public class DisplayAllViewController {
         ArrayList<ImgMsg> imgMsgs = displayAllViewService.getAllImgMsg();
         for(int i=0;i<imgMsgs.size();i++){
             Jay.add(imgMsgs.get(i));
-            System.out.println(imgMsgs.get(i).getImgDesc());
+            //System.out.println(imgMsgs.get(i).getImgDesc());
         }
 
         return Jay;
