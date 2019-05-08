@@ -11,6 +11,6 @@ import java.util.ArrayList;
 @Component
 @Mapper
 public interface ImgMsgMapper {
-@Select("select* from Img_Msg")
+@Select("select* from ImgMsg")
     ArrayList<ImgMsg> findAllImgMsg();
 }

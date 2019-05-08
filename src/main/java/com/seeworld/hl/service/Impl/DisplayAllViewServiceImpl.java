@@ -10,11 +10,14 @@ import java.util.ArrayList;
 
 @Service
 public class DisplayAllViewServiceImpl implements DisplayAllViewService {
-    private ImgMsgMapper imgMsgMapper;
     @Autowired
+    private ImgMsgMapper imgMsgMapper;
+    /*
     public DisplayAllViewServiceImpl(ImgMsgMapper imgMsgMapper){
         this.imgMsgMapper=imgMsgMapper;
     }
+
+     */
 
     @Override
     public ArrayList<ImgMsg> getAllImgMsg() {

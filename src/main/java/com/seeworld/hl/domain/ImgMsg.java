@@ -1,59 +1,61 @@
 package com.seeworld.hl.domain;
 
 public class ImgMsg {
-    private int imgMsg;
-    private int imgType;
-    private String imgTitle;
-    private String imgDesc;
-    private String imagAssName;
-    private String imagResourceName;
 
-    public int getImgMsg() {
-        return imgMsg;
+    private int ImgId;
+    private int ImgType;
+    private String ImgTitle;
+    private String ImgDesc;
+    private String ImgAssetName;
+    private String ImgResourceName;
+
+    public int getImgId() {
+        return ImgId;
     }
 
-    public void setImgMsg(int imgMsg) {
-        this.imgMsg = imgMsg;
-    }
-
-    public String getImgTitle() {
-        return imgTitle;
-    }
-
-    public void setImgTitle(String imgTitle) {
-        this.imgTitle = imgTitle;
-    }
-
-    public String getImgDesc() {
-        return imgDesc;
-    }
-
-    public void setImgDesc(String imgDesc) {
-        this.imgDesc = imgDesc;
-    }
-
-    public String getImagAssName() {
-        return imagAssName;
-    }
-
-    public void setImagAssName(String imagAssName) {
-        this.imagAssName = imagAssName;
-    }
-
-    public String getImagResourceName() {
-        return imagResourceName;
-    }
-
-    public void setImagResourceName(String imagResourceName) {
-        this.imagResourceName = imagResourceName;
+    public void setImgId(int imgId) {
+        ImgId = imgId;
     }
 
     public int getImgType() {
-        return imgType;
+        return ImgType;
     }
 
     public void setImgType(int imgType) {
-        this.imgType = imgType;
+        ImgType = imgType;
     }
+
+    public String getImgTitle() {
+        return ImgTitle;
+    }
+
+    public void setImgTitle(String imgTitle) {
+        ImgTitle = imgTitle;
+    }
+
+    public String getImgDesc() {
+        return ImgDesc;
+    }
+
+    public void setImgDesc(String imgDesc) {
+        ImgDesc = imgDesc;
+    }
+
+    public String getImgAssetName() {
+        return ImgAssetName;
+    }
+
+    public void setImgAssetName(String imgAssetName) {
+        ImgAssetName = imgAssetName;
+    }
+
+    public String getImgResourceName() {
+        return ImgResourceName;
+    }
+
+    public void setImgResourceName(String imgResourceName) {
+        ImgResourceName = imgResourceName;
+    }
+
 
 }
