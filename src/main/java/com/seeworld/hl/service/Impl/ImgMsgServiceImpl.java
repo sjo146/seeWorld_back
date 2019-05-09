@@ -2,7 +2,6 @@ package com.seeworld.hl.service.Impl;
 import com.seeworld.hl.dao.ImgMsgMapper;
 import com.seeworld.hl.domain.ImgMsg;
 import com.seeworld.hl.service.ImgMsgService;
-import com.thoughtworks.xstream.persistence.FileStreamStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sun.misc.BASE64Decoder;
