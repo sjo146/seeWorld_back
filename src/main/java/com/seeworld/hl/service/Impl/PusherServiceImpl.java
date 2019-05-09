@@ -17,6 +17,18 @@ public class PusherServiceImpl implements PusherService {
     @Override
     public int addPusher(Pusher p) {
         System.out.println("now addPusher");
-        return pusherMapper.addPusher(p);
+        return pusherMapper.insertPusher(p);
+    }
+    @Override
+    public boolean login(String username, String password) {
+        System.out.println("now login");
+        boolean result = true;
+        int login = pusherMapper.queryPusherLogin(username,password);
+        if (login != 1) {
+            result = false;
+        } else {
+            result = true;
+        }
+        return result;
     }
 }

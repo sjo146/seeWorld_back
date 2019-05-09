@@ -56,8 +56,10 @@ public class PicUploadController
         model.addAttribute("pic_name", fileName);
         model.addAttribute("pic_url",pic_url);
         byte[]bytes=imgMsgService.SaveImage(pic_url);
-        img.set(0,title,desc,null,0);
+        img.set(0,title,desc,bytes,0);
         System.out.println(imgMsgService.addImg(img));
+        System.out.println("--------------"+bytes);
+
         //imgMsgService.base64StringToImage(bytes.toString());
 
 
