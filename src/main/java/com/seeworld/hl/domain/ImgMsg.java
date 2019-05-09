@@ -7,9 +7,9 @@ public class ImgMsg {
     private String ImgTitle;
     private String ImgDesc;
     private byte[] ImgAssetName;
-    private byte[] ImgResourceName;
+    private int ImgResourceName;
 
-    public void set(int ImgType,String ImgTitle,String ImgDesc,byte[] ImgAssetName,byte[] ImgResourceName)
+    public void set(int ImgType,String ImgTitle,String ImgDesc,byte[] ImgAssetName,int ImgResourceName)
     {
         this.ImgType=ImgType;
         this.ImgTitle=ImgTitle;
@@ -57,11 +57,11 @@ public class ImgMsg {
         ImgAssetName = imgAssetName;
     }
 
-    public byte[] getImgResourceName() {
+    public int getImgResourceName() {
         return ImgResourceName;
     }
 
-    public void setImgResourceName(byte[] imgResourceName) {
+    public void setImgResourceName(int imgResourceName) {
         ImgResourceName = imgResourceName;
     }
 

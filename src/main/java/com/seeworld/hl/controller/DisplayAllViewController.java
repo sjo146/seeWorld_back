@@ -27,7 +27,7 @@ public class DisplayAllViewController {
    */
 
     @ResponseBody
-    @RequestMapping(value = "/getAllImgMsg", method = RequestMethod.GET)
+    @RequestMapping(value = "/getAllImgMsg", method = RequestMethod.POST)
     public JSON getAllImgMsg() {
         JSONArray Jay=new JSONArray();
 
@@ -35,6 +35,22 @@ public class DisplayAllViewController {
         ArrayList<ImgMsg> imgMsgs = displayAllViewService.getAllImgMsg();
         for(int i=0;i<imgMsgs.size();i++){
             Jay.add(imgMsgs.get(i));
+            System.out.println(imgMsgs.get(i).getImgResourceName());
+            //System.out.println(imgMsgs.get(i).getImgDesc());
+        }
+
+        return Jay;
+    }
+    @ResponseBody
+    @RequestMapping(value = "/getAllImgMsg1", method = RequestMethod.GET)
+    public JSON getAllImgMsg2() {
+        JSONArray Jay=new JSONArray();
+System.out.println("JJJJJJJJJJ");
+        JSONObject result = new JSONObject();
+        ArrayList<ImgMsg> imgMsgs = displayAllViewService.getAllImgMsg();
+        for(int i=0;i<imgMsgs.size();i++){
+            Jay.add(imgMsgs.get(i));
+            System.out.println(imgMsgs.get(i).getImgResourceName());
             //System.out.println(imgMsgs.get(i).getImgDesc());
         }
 
