@@ -13,6 +13,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 @Service
 public class ImgMsgServiceImpl implements ImgMsgService {
@@ -25,9 +26,9 @@ public class ImgMsgServiceImpl implements ImgMsgService {
     }
 
     @Override
-    public int addImg(ImgMsg img) {
+    public int addImg(ImgMsg img,int pid) {
         System.out.println("now addImg");
-        return imgMsgMapper.addImg(img);
+        return imgMsgMapper.addImg(img,pid);
     }
 
     @Override
@@ -46,18 +47,35 @@ public class ImgMsgServiceImpl implements ImgMsgService {
         }
         return null;
     }
-    public void base64StringToImage(String base64String){
-        BASE64Decoder decoder = new sun.misc.BASE64Decoder();
-        try {
-            byte[] bytes1 = decoder.decodeBuffer(base64String);
 
-            ByteArrayInputStream bais = new ByteArrayInputStream(bytes1);
-            BufferedImage bi1 =ImageIO.read(bais);
-            File w2 = new File("e://QQ.jpg");//可以是jpg,png,gif格式
-            ImageIO.write(bi1, "jpg", w2);//不管输出什么格式图片，此处不需改动
-        } catch (IOException e) {
-            e.printStackTrace();
+    @Override
+    public boolean deleteImg(int imgID) {
+        int result=imgMsgMapper.deleteImg(imgID);
+        if(result==1)
+        {
+            return true;
         }
+        return false;
+    }
+
+    @Override
+    public ImgMsg getImgByImgId(int id) {
+        ImgMsg imgMsg=imgMsgMapper.selectImgByImgId(id);
+        System.out.println(id+"----------"+imgMsg.getImgDesc());
+        return imgMsg;
+    }
+
+    @Override
+    public ImgMsg updateImg(ImgMsg imgMsg) {
+        imgMsgMapper.updateImg(imgMsg);
+        return imgMsgMapper.selectImgByImgId(imgMsg.getImgId());
+    }
+
+    @Override
+    public ArrayList<ImgMsg> getAllPicture(int pid){
+        ArrayList<ImgMsg> list=imgMsgMapper.getAllPic(pid);
+        System.out.println("list.size()="+list.size());
+        return list;
     }
 
 }

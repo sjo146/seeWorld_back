@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form th:action="@{/updatePusherInfo}" method="post" >
+    <table>
+        <input th:type="hidden"  th:value="${pusher.getPId()} "  name="id">
+        <tr>
+            <td>用户名</td>
+            <td><input th:type="text" th:value="${pusher.getPUsername()}" name="username"/></td>
+        </tr>
+        <tr>
+            <td>姓名</td>
+            <td><input th:type="text" th:value="${pusher.getPName()}" name="name"> </td>
+        </tr>
+        <tr>
+            <td>身份简介</td>
+            <td><input th:type="text" th:value="${pusher.getPDesc()}" name="desc"> </td>
+        </tr>
+        <tr>
+            <td>联系方式</td>
+            <td><input th:type="text" th:value="${pusher.getPPhone()}" name="phone"> </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="修改"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

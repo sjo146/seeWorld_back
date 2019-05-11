@@ -6,6 +6,9 @@ import com.seeworld.hl.service.PusherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Service
 public class PusherServiceImpl implements PusherService {
     PusherMapper pusherMapper;
@@ -20,15 +23,30 @@ public class PusherServiceImpl implements PusherService {
         return pusherMapper.insertPusher(p);
     }
     @Override
-    public boolean login(String username, String password) {
+    public boolean login(String username, String password, HttpServletRequest request) {
         System.out.println("now login");
         boolean result = true;
-        int login = pusherMapper.queryPusherLogin(username,password);
-        if (login != 1) {
+        Pusher p=pusherMapper.queryPusherLogin(username,password);
+        if (p==null) {
             result = false;
         } else {
+            HttpSession session = request.getSession();
+            session.setAttribute("PID", p.getPId());
             result = true;
         }
         return result;
+    }
+
+    @Override
+    public Pusher findPusherInfo(int pid) {
+        Pusher p=pusherMapper.selectByPId(pid);
+        return p;
+    }
+
+    @Override
+    public Pusher updatePusher(Pusher p) {
+        pusherMapper.updatePusher(p);
+        return pusherMapper.selectByPId(p.getPId());
+        //return null;
     }
 }

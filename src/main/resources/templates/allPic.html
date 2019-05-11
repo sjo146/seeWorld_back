@@ -1,0 +1,37 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>无标题文档</title>
+</head>
+
+<body>
+  所有图片在此
+  <table class="delete" width="100%">
+      <tr>
+          <th>名称</th>
+          <th>简介</th>
+          <th>查看</th>
+          <th>删除</th>
+      </tr>
+
+      <tr th:each="pic : ${PicList}">
+          <td th:text="${pic.getImgTitle()}"/>
+          <td th:text="${pic.getImgDesc()}"/>
+          <form th:action="@{/lookPic}" method="post">
+              <td>
+                  <input hidden name="imgID" th:value="${pic.getImgId()}"/>
+                  <input type="submit" value="查看">
+              </td>
+          </form>
+          <form th:action="@{/deletePic}" method="post">
+              <td>
+                  <input hidden name="imgID" th:value="${pic.getImgId()}"/>
+                  <input type="submit" value="删除">
+              </td>
+          </form>
+      </tr>
+
+  </table>
+</body>
+</html>

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 
 @Controller
@@ -28,6 +29,8 @@ public class PicUploadController
     {
         return page;
     }
+
+    //上传图片
     @RequestMapping(value = "/fileUploadController")
     public String fileUpload(HttpServletRequest request,MultipartFile filename, Model model) throws Exception
     {
@@ -57,7 +60,9 @@ public class PicUploadController
         model.addAttribute("pic_url",pic_url);
         byte[]bytes=imgMsgService.SaveImage(pic_url);
         img.set(0,title,desc,bytes,0);
-        System.out.println(imgMsgService.addImg(img));
+        HttpSession session=request.getSession();
+        int pid=(int)(session.getAttribute("PID"));
+        System.out.println(imgMsgService.addImg(img,pid));
         System.out.println("--------------"+bytes);
 
         //imgMsgService.base64StringToImage(bytes.toString());

@@ -12,7 +12,13 @@ public interface PusherMapper {
     @Options(useGeneratedKeys = true,keyProperty = "PId",keyColumn = "p_id")
     int insertPusher(Pusher p);
 
-    @Select("select count(*) from Pusher where p_username = #{username} and p_pwd = #{password}")
-    int queryPusherLogin(@Param("username") String username, @Param("password") String password);
+    @Select("select * from Pusher where p_username = #{username} and p_pwd = #{password}")
+    Pusher queryPusherLogin(@Param("username") String username, @Param("password") String password);
+
+    @Select("select * from Pusher where p_id = #{pid}")
+    Pusher selectByPId(int pid);
+
+    @Update("update Pusher set p_username=#{PUsername},p_name=#{PName},p_desc=#{PDesc},p_phone=#{PPhone} where p_id=#{PId}")
+    int updatePusher(Pusher p);
 
 }

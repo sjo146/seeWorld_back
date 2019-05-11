@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>景区管理员注册</title>
+
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+    <script type="text/javascript">
+        function openfile() {
+            document.getElementById('open').click();
+
+        }
+    </script>
+
+</head>
+<div class="wrapper">
+    <div class="header">
+        <strong><a class="title" href="upload.html">智能会议室管理系统</a></strong>
+        <a class="header_right" href="exit">退出</a>
+        <a id="login" th:text="${session.Username}">登录</a>
+        <a  th:text="${session.PID}">登录</a>
+        <a class="header_right">你好</a>
+    </div>
+
+    <div class="container">
+        <h1>See World</h1>
+<form action="/fileUploadController" method="post" enctype="multipart/form-data" class="form">
+   <input type="text" name="title" placeholder="景区名称">
+    <input type="text" name="desc" placeholder="景区简介">
+    <input type="button" value="点击选择图片" onclick="openfile()">
+    <input  type="file"  name="filename" id="open" style="display: none">
+    <input type="submit" value="确定"/>
+</form>
+
+        <form action="/getAllPic"  >
+            <input type="submit" value="查看">
+        </form>
+    </div>
+        <ul class="bg-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+    </div>
+
+
+    </body>
+</html>
