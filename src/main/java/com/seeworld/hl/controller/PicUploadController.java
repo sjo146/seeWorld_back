@@ -34,7 +34,7 @@ public class PicUploadController
     @RequestMapping(value = "/fileUploadController")
     public String fileUpload(HttpServletRequest request,MultipartFile filename, Model model) throws Exception
     {
-        System.out.println("now the TestController");
+        System.out.println(request.getSession().getServletContext().getRealPath("/"));
         String parentDirPath = theSetDir;//.substring(theSetDir.indexOf(':')+1, theSetDir.length()); //通过设置的那个字符串获得存放图片的目录路径
         System.out.println("parentDirPath="+parentDirPath);
         String title=request.getParameter("title");
@@ -42,8 +42,6 @@ public class PicUploadController
         ImgMsg img=new ImgMsg();
         System.out.println("title="+title);
         System.out.println("desc="+desc);
-
-
         String fileName = filename.getOriginalFilename();
         System.out.println("fileName="+fileName);
         File parentDir = new File(parentDirPath);

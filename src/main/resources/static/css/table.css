@@ -1,0 +1,47 @@
+/* CSS Document */
+
+html, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input, textarea, th, td, select, iframe {
+    margin: 0;
+    padding: 0;
+}
+
+table{
+    margin-top: -500px;
+    width: available;
+}
+.title{
+    width:1200px;
+    list-style-type:none;
+    text-align: center;
+}
+
+caption{
+    font-size: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.delete{
+    margin-top: -500px;
+    width: 800px;
+    margin-left: 300px;
+    text-align: center;
+    border:1px solid #707070;
+    border-collapse:collapse
+}
+
+th{
+    font-weight: lighter;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+tr{
+    border-bottom: 1px solid #c1c1c1;
+}
+
+td{
+    font-weight: lighter;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}

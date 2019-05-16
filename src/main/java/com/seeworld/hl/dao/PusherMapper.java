@@ -21,4 +21,7 @@ public interface PusherMapper {
     @Update("update Pusher set p_username=#{PUsername},p_name=#{PName},p_desc=#{PDesc},p_phone=#{PPhone} where p_id=#{PId}")
     int updatePusher(Pusher p);
 
+    @Select("select　* from Pusher where username=#{username} ")
+    Pusher queryByUsername(String username);
+
 }

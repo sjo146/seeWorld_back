@@ -18,9 +18,18 @@ public class PusherServiceImpl implements PusherService {
     }
 
     @Override
-    public int addPusher(Pusher p) {
+    public int addPusher(Pusher p,HttpServletRequest request) {
         System.out.println("now addPusher");
-        return pusherMapper.insertPusher(p);
+        if(pusherMapper.queryByUsername(p.getPUsername())!=null)
+            return 0;
+        else
+        {
+            int result=pusherMapper.insertPusher(p);
+            Pusher pusher=pusherMapper.queryByUsername(p.getPUsername());
+            HttpSession session = request.getSession();
+            session.setAttribute("PID", pusher.getPId());
+            return result;
+        }
     }
     @Override
     public boolean login(String username, String password, HttpServletRequest request) {

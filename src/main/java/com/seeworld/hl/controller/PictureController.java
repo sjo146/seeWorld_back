@@ -39,14 +39,15 @@ public class PictureController {
         return "allPic";
     }
 
+
     @RequestMapping(value = "/lookPic")
     public String lookPic(HttpServletRequest request, Model model) throws Exception {
         int imgID=Integer.valueOf(request.getParameter("imgID"));
-        System.out.println(imgID);
         ImgMsg imgMsg=imgMsgService.getImgByImgId(imgID);
-        System.out.println(imgMsg.getImgDesc());
+        String path=imgMsgService.base64StringToImage(new String(imgMsg.getImgAssetName()),imgMsg.getImgId());
         model.addAttribute("imgMsg",imgMsg);
-       // model.addAttribute("imgDesc",imgMsg.getImgDesc());
+        model.addAttribute("imgPath",path);
+        System.out.println(path);
         return "lookPic";
     }
 

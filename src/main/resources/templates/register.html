@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -17,12 +18,16 @@
     <div class="container">
         <h1>See World-注册</h1>
 <form action="/addPusherController" method="post" class="form">
+    <div>
+        &nbsp;
+        <span style="font-size: 12px;color: red" th:text="${error}"/>
+    </div>
     <input type="text" name="user" placeholder="用户名">
     <input type="text" name="name" placeholder="姓名">
     <input type="password" name="pwd" placeholder="密码">
     <input type="text" name="desc" placeholder="身份">
     <input type="text" name="phone" placeholder="联系方式">
-    <input type="submit" name="注册">
+    <input type="submit" value="注册">
 </form></div>
 
     <ul class="bg-bubbles">

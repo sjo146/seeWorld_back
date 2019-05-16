@@ -29,8 +29,13 @@ public class PusherController {
         String phone = request.getParameter("phone");
         Pusher pusher = new Pusher();
         pusher.set(name, pwd, phone, desc, username);
-        pusherService.addPusher(pusher);
-        return "upload";
+        int result=pusherService.addPusher(pusher,request);
+        if(result==0)
+        {
+            model.addAttribute("error", "用户名密码错误");
+            return "register";
+        }
+        return "allPic";
     }
     @RequestMapping(value = "/PusherLoginController")
     public String pusherLogin(HttpServletRequest request, Model model) throws Exception {
@@ -48,7 +53,7 @@ public class PusherController {
             HttpSession session = request.getSession();
             session.setAttribute("Username", username);
             model.addAttribute("userName", username);
-            return "navbar";
+            return "allPic";
         }
     }
     @RequestMapping(value = "/findPusherInfo")

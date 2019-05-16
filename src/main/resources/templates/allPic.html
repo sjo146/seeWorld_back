@@ -1,13 +1,17 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
-    <title>无标题文档</title>
-</head>
 
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/table.css}">
+    <link rel="import" href="navbar.html" id="page1"/>
+    <script type="text/javascript">
+        document.write(page1.import.body.innerHTML);
+    </script>`
+</head>
 <body>
-  所有图片在此
-  <table class="delete" width="100%">
+
+
+<table  class="delete ">
       <tr>
           <th>名称</th>
           <th>简介</th>
@@ -33,5 +37,6 @@
       </tr>
 
   </table>
+
 </body>
 </html>
