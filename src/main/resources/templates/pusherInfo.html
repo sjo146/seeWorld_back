@@ -5,19 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>查看图片详细信息</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/static/css/styles.css}">
     <link rel="import" href="navbar.html" id="page1"/>
     <script type="text/javascript">
         document.write(page1.import.body.innerHTML);
     </script>`
 </head>
 <body>
-<div class="wrapper">
-
-    <div class="container">
-        <h1>See World</h1>
-<form th:action="@{/updatePusherInfo}" method="post" class="form" >
-    <table border="1" style="margin: auto;vertical-align: middle;" width='60%'>
+<form th:action="@{/updatePusherInfo}" method="post" >
+    <table align="center" style="margin-top:-500px " >
         <input th:type="hidden"  th:value="${pusher.getPId()} "  name="id">
         <tr>
             <td>用户名</td>
@@ -41,21 +36,6 @@
         </tr>
     </table>
 </form>
-    </div>
 
-    <ul class="bg-bubbles">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
-
-</div>
 </body>
 </html>

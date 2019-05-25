@@ -78,20 +78,20 @@ public class ImgMsgServiceImpl implements ImgMsgService {
         return list;
     }
     @Override
-    public String  base64StringToImage(String base64String,int id) {
+    public String  base64StringToImage(String base64String,int id,String savePath) {
         BASE64Decoder decoder = new sun.misc.BASE64Decoder();
-        String path=null;
+        String path=savePath;
         try {
             byte[] bytes1 = decoder.decodeBuffer(base64String);
             ByteArrayInputStream bais = new ByteArrayInputStream(bytes1);
             BufferedImage bi1 =ImageIO.read(bais);
-            path="/"+id+".jpg";
+            path+="/images/"+id+".jpg";
             File w2 = new File(path);//可以是jpg,png,gif格式
             ImageIO.write(bi1, "jpg", w2);//不管输出什么格式图片，此处不需改动
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return path;
+        return "/static/images/"+id+".jpg";
     }
 
 }

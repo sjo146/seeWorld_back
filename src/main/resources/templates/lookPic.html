@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>查看图片详细信息</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/static/css/styles.css}">
+
     <link rel="import" href="navbar.html" id="page1"/>
     <script type="text/javascript">
         document.write(page1.import.body.innerHTML);
@@ -16,7 +16,7 @@
 
     <div class="container">
 <form  th:action="@{/updatePic}" method="post" class="form">
-    <table border=0 cellpadding=0 cellspacing=0 style="width:100% ;height:100%">
+    <table align="center" style="margin-top: -500px">
         <input th:type="hidden"  th:value="${imgMsg.getImgId()} "  name="id">
         <tr>
             <td>名称</td>
@@ -27,8 +27,9 @@
             <td><input th:type="text" th:value="${imgMsg.getImgDesc()}" name="desc"> </td>
         </tr>
         <tr>
-            <input th:type="text" th:value="${imgPath}" name="desc">
-            <img th:src="${imgPath}">
+            <td>图片</td>
+            <td><img th:src="@{${imgPath}}" width="150px" height="150px"></td>
+
         </tr>
         <tr>
             <td></td>

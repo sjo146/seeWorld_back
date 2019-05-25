@@ -5,6 +5,7 @@ import com.seeworld.hl.service.ImgMsgService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -42,9 +43,10 @@ public class PictureController {
 
     @RequestMapping(value = "/lookPic")
     public String lookPic(HttpServletRequest request, Model model) throws Exception {
+        String savePath=ResourceUtils.getURL("classpath:static").getPath();
         int imgID=Integer.valueOf(request.getParameter("imgID"));
         ImgMsg imgMsg=imgMsgService.getImgByImgId(imgID);
-        String path=imgMsgService.base64StringToImage(new String(imgMsg.getImgAssetName()),imgMsg.getImgId());
+        String path=imgMsgService.base64StringToImage(new String(imgMsg.getImgAssetName()),imgMsg.getImgId(),savePath);
         model.addAttribute("imgMsg",imgMsg);
         model.addAttribute("imgPath",path);
         System.out.println(path);

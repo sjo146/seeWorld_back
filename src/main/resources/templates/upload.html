@@ -11,53 +11,27 @@
     <script type="text/javascript">
         document.write(page1.import.body.innerHTML);
     </script>`
-    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
-    <script type="text/javascript">
-        function openfile() {
-            document.getElementById('open').click();
-
-        }
-    </script>
-
 </head>
-<div class="wrapper">
-    <div class="header">
-        <strong><a class="title" href="upload.html">智能会议室管理系统</a></strong>
-        <a class="header_right" href="exit">退出</a>
-        <a id="login" th:text="${session.Username}">登录</a>
-        <a  th:text="${session.PID}">登录</a>
-        <a class="header_right">你好</a>
-    </div>
-
-    <div class="container">
-        <h1>See World</h1>
-<form action="/fileUploadController" method="post" enctype="multipart/form-data" class="form">
-   <input type="text" name="title" placeholder="景区名称">
-    <input type="text" name="desc" placeholder="景区简介">
-    <input type="button" value="点击选择图片" onclick="openfile()">
-    <input  type="file"  name="filename" id="open" style="display: none">
-    <input type="submit" value="确定"/>
+<body >
+<form action="/fileUploadController" method="post" enctype="multipart/form-data" >
+    <table align="center" style="margin-top: -500px">
+        <tr>
+            <td>景区名称</td>
+            <td><input type="text" name="title"></td>
+        </tr>
+        <tr>
+            <td>景区简介</td>
+            <td><input type="text" name="desc"></td>
+        </tr>
+        <tr>
+            <td>景区图片</td>
+            <td><input  type="file"  name="filename"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="确定"/></td>
+        </tr>
+    </table>
 </form>
-
-        <form action="/getAllPic"  >
-            <input type="submit" value="查看">
-        </form>
-    </div>
-        <ul class="bg-bubbles">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-
-    </div>
-
-
-    </body>
+</body>
 </html>

@@ -11,5 +11,5 @@ public interface ImgMsgService {
     boolean deleteImg(int imgID);
     ImgMsg getImgByImgId(int id);
     ImgMsg updateImg(ImgMsg imgMsg);
-    String base64StringToImage(String base64String,int id);
+    String base64StringToImage(String base64String,int id,String path);
 }
