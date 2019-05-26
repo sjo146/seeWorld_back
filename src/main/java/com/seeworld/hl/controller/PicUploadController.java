@@ -61,6 +61,7 @@ public class PicUploadController
         HttpSession session=request.getSession();
         int pid=(int)(session.getAttribute("PID"));
         System.out.println(imgMsgService.addImg(img,pid));
+
         System.out.println("--------------"+bytes);
 
         //imgMsgService.base64StringToImage(bytes.toString());
