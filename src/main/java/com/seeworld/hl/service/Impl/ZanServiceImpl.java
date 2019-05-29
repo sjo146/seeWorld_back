@@ -6,6 +6,8 @@ import com.seeworld.hl.service.ZanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 public class ZanServiceImpl implements ZanService {
     @Autowired
@@ -16,12 +18,17 @@ public class ZanServiceImpl implements ZanService {
     }
 
     @Override
-    public Zan findZanmsg(int id) {
-        return zanMapper.findZanmsg(id);
+    public Zan findZanmsg(int id,int uid) {
+        return zanMapper.findZanmsg(id,uid);
     }
 
     @Override
     public int updateZanState(Zan zan) {
         return updateZanState(zan);
+    }
+
+    @Override
+    public ArrayList<Zan> getAllZan(int uid) {
+        return zanMapper.getAllZan(uid);
     }
 }

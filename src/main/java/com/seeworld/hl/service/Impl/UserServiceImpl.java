@@ -15,12 +15,12 @@ public class UserServiceImpl implements UserService {
         this.userMapper = userMapper;
     }
     @Override
-    public boolean judgeLogin(String username, String pwd) {
+    public User judgeLogin(String username, String pwd) {
         User  user=new User();
         user=userMapper.selectUserLogin(username,pwd);
         if(user!=null)
-            return true;
-        return false;
+            return user;
+        return null;
     }
 
     @Override

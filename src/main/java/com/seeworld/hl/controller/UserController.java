@@ -27,12 +27,15 @@ public class UserController {
         JSONObject jsonObject=JSONObject.parseObject(json);
         String username=jsonObject.getString("UUsername");
         String pwd=jsonObject.getString("UPwd");
-        boolean loginResult=userService.judgeLogin(username,pwd);
+        User user=userService.judgeLogin(username,pwd);
         JSONObject result = new JSONObject();
+        Boolean loginResult;
+        if(user==null)loginResult=false;
+        else {loginResult=true;
+        result.put("uid",user.getUId());
+        }
         result.put("loginResult",loginResult);
-        JSONArray Jay=new JSONArray();
-        Jay.add(result);
-        return Jay;
+        return result;
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
