@@ -24,7 +24,7 @@ public class ZanServiceImpl implements ZanService {
 
     @Override
     public int updateZanState(Zan zan) {
-        return updateZanState(zan);
+        return zanMapper.updateZanState(zan);
     }
 
     @Override

@@ -1,7 +1,7 @@
 package com.seeworld.hl.domain;
 
 public class Zan {
-private int Imagid;
+private int Imgid;
 private Boolean Iszan;
 private int Uid;
 
@@ -13,12 +13,12 @@ private int Uid;
         Uid = uid;
     }
 
-    public int getImagid() {
-        return Imagid;
+    public int getImgid() {
+        return Imgid;
     }
 
-    public void setImagid(int imagid) {
-        Imagid = imagid;
+    public void setImgid(int imgid) {
+        Imgid = imgid;
     }
 
     public Boolean getIszan() {

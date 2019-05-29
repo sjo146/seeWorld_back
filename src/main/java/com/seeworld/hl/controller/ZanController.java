@@ -27,6 +27,7 @@ public class ZanController {
     @ResponseBody
     @RequestMapping(value = "/getZanbyImgIDandUid", method = RequestMethod.POST)
     JSONArray getZanbyImgID(@RequestBody JSONObject json) {
+        System.out.println("获取赞赞");
         int imgid = json.getInteger("imgid");
         int uid=json.getInteger("uid");
         JSONArray jar = new JSONArray();
@@ -37,14 +38,19 @@ public class ZanController {
     @ResponseBody
     @RequestMapping(value = "/updatezan", method = RequestMethod.POST)
     JSON updatezan(@RequestBody JSONObject json) {
+        System.out.println("更新赞");
         int imgid = json.getInteger("imgid");
         int uid=json.getInteger("uid");
         Boolean iszan=json.getBoolean("iszan");
+        System.out.println(json.toString());
         Zan zan=new Zan();
         zan.setUid(uid);
-        zan.setImagid(imgid);
+        zan.setImgid(imgid);
         zan.setIszan(iszan);
-        int x=zanService.updateZanState(zan);
+        int x=0;
+        if(zanService.findZanmsg(imgid,uid)!=null)
+        x=zanService.updateZanState(zan);
+        else x=zanService.insertOriginalZan(zan);
         JSONObject jo=new JSONObject();
         if(x==1)jo.put("msg","ok");
         else jo.put("msg","error");
