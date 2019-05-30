@@ -2,6 +2,7 @@ package com.seeworld.hl.service.Impl;
 
 import com.seeworld.hl.dao.CommentMapper;
 import com.seeworld.hl.domain.Comment;
+import com.seeworld.hl.domain.Comment_name;
 import com.seeworld.hl.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,12 +19,12 @@ public class CommentServiceImpl  implements CommentService {
     }
 
     @Override
-    public ArrayList<Comment> getImgAllComment(int imgid) {
+    public ArrayList<Comment_name> getImgAllComment(int imgid) {
         return commentMapper.getImgAllComment(imgid);
     }
 
     @Override
-    public ArrayList<Comment> getUserAllComment(int uid) {
+    public ArrayList<Comment_name> getUserAllComment(int uid) {
         return commentMapper.getUserAllComment(uid);
     }
 
