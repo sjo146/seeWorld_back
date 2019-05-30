@@ -37,4 +37,9 @@ public class CommentServiceImpl  implements CommentService {
     public int deleteSingleComment(int cid) {
         return commentMapper.deleteSingleComment(cid);
     }
+
+    @Override
+    public int lastInsertCid() {
+        return commentMapper.lastInsertCid();
+    }
 }

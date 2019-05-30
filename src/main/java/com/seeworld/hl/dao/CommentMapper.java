@@ -24,4 +24,7 @@ public interface CommentMapper {
 
     @Delete("delete from Comment where cid=#{cid}")
     int deleteSingleComment(@Param("cid") int cid);
+
+    @Select("SELECT LAST_INSERT_ID();")
+    int lastInsertCid();
 }

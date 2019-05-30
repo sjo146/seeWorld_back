@@ -14,4 +14,6 @@ public interface CommentService {
     ArrayList<Comment_name> getUserAllComment(int uid);
 
     int deleteSingleComment(int cid);
+
+    int lastInsertCid();
 }

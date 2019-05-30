@@ -25,6 +25,9 @@ public class CommentController {
         System.out.println("得到所有评论");
         int imgid = json.getInteger("imgid");
         JSONArray jar = new JSONArray();
+        System.out.println(commentService.getImgAllComment(imgid).size());
+
+        if(commentService.getImgAllComment(imgid).size()!=0)
         jar.add(commentService.getImgAllComment(imgid));
         return jar;
     }
@@ -42,6 +45,7 @@ public class CommentController {
         co.setUid(uid);
        JSONObject jsonObject=new JSONObject();
        jsonObject.put("msg",commentService.insertComment(co));
+       jsonObject.put("cid",commentService.lastInsertCid());
         return jsonObject;
     }
 }
