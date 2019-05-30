@@ -34,4 +34,22 @@ public class UserServiceImpl implements UserService {
             return 2;
         return 3;
     }
+
+    @Override
+    public int changePwd(int uid, String oldPwd, String newPwd) {
+        System.out.println("now service");
+        System.out.println(oldPwd);
+        System.out.println(newPwd);
+        System.out.println(uid);
+        int result=0;
+        User u=userMapper.selectUserByUId(uid);
+        System.out.println("user="+u.getUUsername());
+        System.out.println("userPWD="+u.getUPassword());
+        if(u.getUPassword().equals(oldPwd))
+        {
+            result=userMapper.updatePwd(newPwd,uid);
+        }
+        System.out.println(result);
+        return result;
+    }
 }

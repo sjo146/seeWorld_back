@@ -31,8 +31,11 @@ public class UserController {
         JSONObject result = new JSONObject();
         Boolean loginResult;
         if(user==null)loginResult=false;
-        else {loginResult=true;
+        else
+            {loginResult=true;
         result.put("uid",user.getUId());
+        result.put("uusername",user.getUUsername());
+        result.put("upersonal",user.getUPersonal());
         }
         result.put("loginResult",loginResult);
         return result;
@@ -46,9 +49,28 @@ public class UserController {
         String pwd=jsonObject.getString("UPwd");
         User user=new User();
         user.setUUsername(username);
-        user.setUPwd(pwd);
+        user.setUPassword(pwd);
+        user.setUPersonal("初来乍到，请多关照");
         int back=userService.addUser(user);
         String  registerResult=String.valueOf(back);
+        JSONObject result = new JSONObject();
+        result.put("registerResult",registerResult);
+        JSONArray Jay=new JSONArray();
+        Jay.add(result);
+        return Jay;
+    }
+
+    @RequestMapping(value = "/changePwd", method = RequestMethod.POST)
+    public @ResponseBody
+    JSON changePwd(@RequestBody String json) {
+        JSONObject jsonObject=JSONObject.parseObject(json);
+        String newPwd=jsonObject.getString("new");
+        String oldPwd=jsonObject.getString("old");
+        int  uid=Integer.valueOf(jsonObject.getString("uid"));
+        System.out.println(oldPwd);
+        System.out.println(newPwd);
+        System.out.println(uid);
+        int registerResult=userService.changePwd(uid,oldPwd,newPwd);
         JSONObject result = new JSONObject();
         result.put("registerResult",registerResult);
         JSONArray Jay=new JSONArray();

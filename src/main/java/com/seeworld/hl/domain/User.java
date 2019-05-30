@@ -3,7 +3,16 @@ package com.seeworld.hl.domain;
 public class User {
     int UId;
     String UUsername;
-    String UPwd;
+    String UPassword;
+    String UPersonal;
+
+    public void setUPersonal(String UPersonal) {
+        this.UPersonal = UPersonal;
+    }
+
+    public String getUPersonal() {
+        return UPersonal;
+    }
 
     public int getUId() {
         return UId;
@@ -13,16 +22,16 @@ public class User {
         this.UId = UId;
     }
 
-    public String getUPwd() {
-        return UPwd;
-    }
-
     public String getUUsername() {
         return UUsername;
     }
 
-    public void setUPwd(String UPwd) {
-        this.UPwd = UPwd;
+    public String getUPassword() {
+        return UPassword;
+    }
+
+    public void setUPassword(String UPassword) {
+        this.UPassword = UPassword;
     }
 
     public void setUUsername(String UUsername) {

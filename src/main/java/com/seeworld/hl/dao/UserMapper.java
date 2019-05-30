@@ -1,11 +1,11 @@
 package com.seeworld.hl.dao;
 
+import com.seeworld.hl.domain.ImgMsg;
 import com.seeworld.hl.domain.User;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
 
 @Component
 @Mapper
@@ -16,8 +16,16 @@ public interface UserMapper {
     @Select("select * from User where u_username = #{username}")
     User selectUserByUsername(String username);
 
-    @Insert("insert into User(u_username,u_password) values (#{UUsername},#{UPwd})")
+    @Select("select * from User where u_id = #{uid}")
+    User selectUserByUId(int uid);
+
+    @Insert("insert into User(u_username,u_password,u_personal) values (#{UUsername},#{UPwd},#{UPersonal})")
     @Options(useGeneratedKeys = true,keyProperty = "UId",keyColumn = "u_id")
     int insertUser(User user);
+
+    @Update("update User set u_password=#{password} where u_id=#{uid}")
+    int  updatePwd(String password,int uid);
+
+
 }
 
