@@ -25,7 +25,7 @@ public interface ImgMsgMapper {
     @Select("select*from ImgMsg where p_id=#{pid}" )
     ArrayList<ImgMsg> getAllPic(int pid);
 
-    @Select("select*from ImgMsg where 4img_id=#{id}" )
+    @Select("select*from ImgMsg where img_id=#{id}" )
     ImgMsg selectImgByImgId(int id);
 
     @Delete("delete from ImgMsg where img_id=#{imgID}")

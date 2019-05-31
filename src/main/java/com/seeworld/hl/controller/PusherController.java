@@ -1,6 +1,8 @@
 package com.seeworld.hl.controller;
 
+import com.seeworld.hl.domain.ImgMsg;
 import com.seeworld.hl.domain.Pusher;
+import com.seeworld.hl.service.ImgMsgService;
 import com.seeworld.hl.service.PusherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,14 +11,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 
 @Controller
 public class PusherController {
     private PusherService pusherService;
+    private ImgMsgService imgMsgService;
 
     @Autowired
-    PusherController(PusherService pusherService) {
+    PusherController(PusherService pusherService,ImgMsgService imgMsgService) {
         this.pusherService = pusherService;
+        this.imgMsgService=imgMsgService;
     }
 
     @RequestMapping(value = "/addPusherController")
@@ -53,6 +58,10 @@ public class PusherController {
             HttpSession session = request.getSession();
             session.setAttribute("Username", username);
             model.addAttribute("userName", username);
+            System.out.println("now getAllPic)");
+            int pid=(int)(session.getAttribute("PID"));
+            ArrayList<ImgMsg> list=imgMsgService.getAllPicture(pid);
+            model.addAttribute("PicList",list);
             return "allPic";
         }
     }
