@@ -26,6 +26,9 @@ public interface UserMapper {
     @Update("update User set u_password=#{password} where u_id=#{uid}")
     int  updatePwd(String password,int uid);
 
+    @Update("update User set u_personal=#{personal},u_username=#{username} where u_id=#{uid}")
+    int  updateMine(String personal,String username,int uid);
+
 
 }
 

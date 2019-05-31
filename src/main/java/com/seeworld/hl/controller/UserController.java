@@ -78,4 +78,22 @@ public class UserController {
         return Jay;
     }
 
+    @RequestMapping(value = "/changeMine", method = RequestMethod.POST)
+    public @ResponseBody
+    JSON changeMine(@RequestBody String json) {
+        JSONObject jsonObject=JSONObject.parseObject(json);
+        String personal=jsonObject.getString("personal");
+        String username=jsonObject.getString("username");
+        int  uid=Integer.valueOf(jsonObject.getString("uid"));
+        System.out.println(personal);
+        System.out.println(username);
+        System.out.println(uid);
+        int registerResult=userService.changeMine(uid,username,personal);
+        JSONObject result = new JSONObject();
+        result.put("registerResult",registerResult);
+        JSONArray Jay=new JSONArray();
+        Jay.add(result);
+        return Jay;
+    }
+
 }

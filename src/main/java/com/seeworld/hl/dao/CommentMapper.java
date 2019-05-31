@@ -2,6 +2,7 @@ package com.seeworld.hl.dao;
 
 import com.seeworld.hl.domain.Comment;
 import com.seeworld.hl.domain.Comment_name;
+import com.seeworld.hl.domain.ImgMsg;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
 
@@ -27,4 +28,13 @@ public interface CommentMapper {
 
     @Select("SELECT LAST_INSERT_ID();")
     int lastInsertCid();
+
+    @Select("select distinct ImgMsg.* " +
+            "from ImgMsg,Comment,User " +
+            "where User.u_id=Comment.uid and ImgMsg.img_id=Comment.imgid and uid=#{uid}")
+    ArrayList<ImgMsg> selectByUid(int uid);
+
+    @Select("select*from Comment  " +
+            "where imgid=#{imgid} and uid=#{uid} ")
+    ArrayList<Comment> selectByImgidAndUid(int imgid,int uid);
 }

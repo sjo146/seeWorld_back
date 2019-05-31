@@ -52,4 +52,13 @@ public class UserServiceImpl implements UserService {
         System.out.println(result);
         return result;
     }
+
+    @Override
+    public int changeMine(int uid, String username, String personal) {
+        System.out.println(personal);
+        System.out.println(username);
+        int result;
+        result=userMapper.updateMine(personal, username, uid);
+        return result;
+    }
 }
