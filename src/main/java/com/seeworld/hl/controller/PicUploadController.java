@@ -14,59 +14,53 @@ import javax.servlet.http.HttpSession;
 import java.io.File;
 
 @Controller
-public class PicUploadController
-{
+public class PicUploadController {
     @Value("${cbs.imagesPath}")
     private String theSetDir; //全局配置文件中设置的图片的路径
     private ImgMsgService imgMsgService;
+
     @Autowired
     PicUploadController(ImgMsgService imgMsgService) {
         this.imgMsgService = imgMsgService;
     }
 
     @GetMapping("/{page}")
-    public String toPate(@PathVariable("page") String page)
-    {
+    public String toPate(@PathVariable("page") String page) {
         return page;
     }
 
     //上传图片
     @RequestMapping(value = "/fileUploadController")
-    public String fileUpload(HttpServletRequest request,MultipartFile filename, Model model) throws Exception
-    {
+    public String fileUpload(HttpServletRequest request, MultipartFile filename, Model model) throws Exception {
         System.out.println(request.getSession().getServletContext().getRealPath("/"));
         String parentDirPath = theSetDir;//.substring(theSetDir.indexOf(':')+1, theSetDir.length()); //通过设置的那个字符串获得存放图片的目录路径
-        System.out.println("parentDirPath="+parentDirPath);
-        String title=request.getParameter("title");
-        String desc=request.getParameter("desc");
-        ImgMsg img=new ImgMsg();
-        System.out.println("title="+title);
-        System.out.println("desc="+desc);
+        System.out.println("parentDirPath=" + parentDirPath);
+        String title = request.getParameter("title");
+        String desc = request.getParameter("desc");
+        ImgMsg img = new ImgMsg();
+        System.out.println("title=" + title);
+        System.out.println("desc=" + desc);
         String fileName = filename.getOriginalFilename();
-        System.out.println("fileName="+fileName);
+        System.out.println("fileName=" + fileName);
         File parentDir = new File(parentDirPath);
-        if(!parentDir.exists()) //如果那个目录不存在先创建目录
+        if (!parentDir.exists()) //如果那个目录不存在先创建目录
         {
             parentDir.mkdir();
         }
 
         filename.transferTo(new File(parentDirPath + fileName)); //全局配置文件中配置的目录加上文件名
-        String pic_url=parentDirPath+fileName;
+        String pic_url = parentDirPath + fileName;
         //img.set(0,title,desc,pic_url,"0");
-        System.out.println("pic_url="+pic_url);
+        System.out.println("pic_url=" + pic_url);
         model.addAttribute("pic_name", fileName);
-        model.addAttribute("pic_url",pic_url);
-        byte[]bytes=imgMsgService.SaveImage(pic_url);
-        img.set(0,title,desc,bytes,0);
-        HttpSession session=request.getSession();
-        int pid=(int)(session.getAttribute("PID"));
-        System.out.println(imgMsgService.addImg(img,pid));
-
-        System.out.println("--------------"+bytes);
-
-        //imgMsgService.base64StringToImage(bytes.toString());
-
-
-        return "show";
+        model.addAttribute("pic_url", pic_url);
+        byte[] bytes = imgMsgService.SaveImage(pic_url);
+        img.set(0, title, desc, bytes, 0);
+        HttpSession session = request.getSession();
+        int pid = (int) (session.getAttribute("PID"));
+        String tip=title+":上传成功";
+        model.addAttribute("tip", tip);
+        System.out.println(imgMsgService.addImg(img, pid));
+        return "upload";
     }
 }

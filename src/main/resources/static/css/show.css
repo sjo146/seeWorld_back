@@ -1,0 +1,9 @@
+.tt{
+    padding: 0px;
+    width:500px;
+    height:200px;
+    text-align:center;
+
+    display: table-cell;
+    vertical-align:middle
+}
